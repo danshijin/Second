@@ -1,21 +1,23 @@
 {
-	"index.html": {
-		"resources": [
-			"js/echarts.js",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"watchPriceTable.html"
-		],
-		"refer": [
-			"watchPriceTable.html"
-		]
-	},
-	"watchPriceTable.html": {
-		"resources": [
-			"index.html"
-		],
-		"refer": [
-			"index.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "js/echarts.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "watchPriceTable.html"
+    ],
+    "refer": [
+      "watchPriceTable.html"
+    ]
+  },
+  "watchPriceTable.html": {
+    "resources": [
+      "index.html",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  }
 }

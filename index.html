@@ -21,14 +21,16 @@
 	<script>
 		mui.plusReady(function(){
 			var today = new Date();
-			var key = "" + today.getFullYear() + (today.getMonth() + 1) + today.getDate();
+			var key = getFormatDate(today);
 			var value = localStorage.getItem(key);
 			if(value != null && value != "null") {
-				mui.alert("今日手表数据已存在" + value);
+				mui.toast("今日手表数据已存在" + value);
 				return;
 			}
 			var url = "https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=sne329";
+			mui.toast("抓取商品页面文本..");
 			mui.get(url, {}, function(data){
+				mui.toast("解析数据..");
 				getWatchesPrice(data);
 			},"html");
 		});
@@ -48,10 +50,22 @@
 				}
 			} 
 			var today = new Date();
-			var key = ""+ today.getFullYear() + (today.getMonth() + 1) + today.getDate();
+			var key = getFormatDate(today);
 			var value = JSON.stringify(watch);
 			localStorage.setItem(key, value);
 			mui.alert("今日手表数据保存成功" + value);
+		}
+		
+		function getFormatDate(calendar){
+			var month = "" + (calendar.getMonth() + 1);
+			if(month.length == 1) {
+				month = "0" + month;
+			}
+			var date = "" + calendar.getDate();
+			if(date.length == 1) {
+				date = "0" + date;
+			}
+			return ""+ calendar.getFullYear() + month + date;
 		}
 		
 		function getListByTag(content, startTag, endTag) {
