@@ -16,47 +16,64 @@
 	<body>
 		<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
 		<div id="main" style="width: 100%;height:400px;"></div>
+		<a href="watchPriceTable.html">手表历史价格</a>
 	</body>
 	<script>
-		var url = "https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=sne329";
-		mui.get(url, {}, function(data){
-			getWatchesPrice(data);
-		},"html");
+		mui.plusReady(function(){
+			var today = new Date();
+			var key = "" + today.getFullYear() + (today.getMonth() + 1) + today.getDate();
+			var value = localStorage.getItem(key);
+			if(value != null && value != "null") {
+				mui.alert("今日手表数据已存在" + value);
+				return;
+			}
+			var url = "https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=sne329";
+			mui.get(url, {}, function(data){
+				getWatchesPrice(data);
+			},"html");
+		});
 		
 		function getWatchesPrice(content) {
-			console.log(content.length); 
-			console.log(content.substring(10000,11000))
-			url = "https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=sne329";
-			var priceStartStr = "a-size-base a-color-price s-price a-text-bold\">$";
+			
+			var priceStartStr = "a-size-small a-color-price a-text-bold\">$";
 			var priceList = getListByTag(content, priceStartStr, "<");
-			var itemNameStartStr = "a-link-normal s-access-detail-page  a-text-normal\" title=\"";
-			var itemNameList = getListByTag(content, itemNameStartStr, "\"");
-			console.log(priceList);
-			console.log(itemNameList);
+			var itemNameStartStr = "a-size-base a-color-base sx-title\">";
+			var itemNameList = getListByTag(content, itemNameStartStr, "<");
+			var watch = {};
+			for(var i = 0; i < priceList.length; i++) {
+				if(itemNameList[i].indexOf("SNE329") > -1) {
+					watch.SNE329 = priceList[i];
+				} else if(itemNameList[i].indexOf("SNE331") > -1) {
+					watch.SNE331 = priceList[i];
+				}
+			}
+			var today = new Date();
+			var key = ""+ today.getFullYear() + (today.getMonth() + 1) + today.getDate();
+			var value = JSON.stringify(watch);
+			localStorage.setItem(key, value);
+			mui.alert("今日手表数据保存成功" + value);
 		}
 		
 		function getListByTag(content, startTag, endTag) {
-			var priceList = [];
+			var resultList = [];
 			var startIndex = 0;
 			var maxItemCount = 5;
 			var index = 0;
 			while(true) {
 				startIndex = content.indexOf(startTag, startIndex);
-				console.log(startIndex)
 				if(startIndex == -1) {
 					break;
 				}
-				startIndex += startTag.length();
+				startIndex += startTag.length;
 				var endIndex = content.indexOf(endTag, startIndex);
 				var price = content.substring(startIndex, endIndex);
-				console.log(price);
-				priceList.push(price);
+				resultList.push(price);
 				if(index >= maxItemCount) {
 					break;
 				}
 				index++;
 			}
-			return priceList;
+			return resultList;
 		}
 	
 		// 基于准备好的dom，初始化echarts实例

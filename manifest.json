@@ -196,7 +196,15 @@
 				"resources": [
 					"js/echarts.js",
 					"js/mui.min.js",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"watchPriceTable.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"watchPriceTable.html": {
+				"resources": [
+					"index.html"
 				],
 				"refer": [],
 				"priority": 0

@@ -3,7 +3,19 @@
 		"resources": [
 			"js/echarts.js",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"watchPriceTable.html"
+		],
+		"refer": [
+			"watchPriceTable.html"
+		]
+	},
+	"watchPriceTable.html": {
+		"resources": [
+			"index.html"
+		],
+		"refer": [
+			"index.html"
 		]
 	}
 }
