@@ -197,7 +197,9 @@
 					"js/echarts.js",
 					"js/mui.min.js",
 					"css/mui.min.css",
-					"watchPriceTable.html"
+					"watchPriceTable.html",
+					"getTodayWatchesPrice.html",
+					"tapAndCount.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -207,6 +209,26 @@
 					"index.html",
 					"js/mui.min.js",
 					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tapAndCount.html": {
+				"resources": [
+					"img/headerSliderPicture/6.jpg",
+					"img/headerSliderPicture/1.jpg",
+					"img/headerSliderPicture/5.jpg",
+					"img/headerSliderPicture/3.jpg",
+					"img/headerSliderPicture/2.jpg",
+					"img/headerSliderPicture/4.jpg",
+					"index.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"getTodayWatchesPrice.html": {
+				"resources": [
+					"index.html"
 				],
 				"refer": [],
 				"priority": 0

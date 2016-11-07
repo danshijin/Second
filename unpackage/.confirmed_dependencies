@@ -1,23 +1,49 @@
 {
-  "index.html": {
-    "resources": [
-      "js/echarts.js",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "watchPriceTable.html"
-    ],
-    "refer": [
-      "watchPriceTable.html"
-    ]
-  },
-  "watchPriceTable.html": {
-    "resources": [
-      "index.html",
-      "js/mui.min.js",
-      "css/mui.min.css"
-    ],
-    "refer": [
-      "index.html"
-    ]
-  }
+	"index.html": {
+		"resources": [
+			"js/echarts.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"watchPriceTable.html",
+			"getTodayWatchesPrice.html",
+			"tapAndCount.html"
+		],
+		"refer": [
+			"watchPriceTable.html",
+			"getTodayWatchesPrice.html",
+			"tapAndCount.html"
+		]
+	},
+	"watchPriceTable.html": {
+		"resources": [
+			"index.html",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"tapAndCount.html": {
+		"resources": [
+			"img/headerSliderPicture/6.jpg",
+			"img/headerSliderPicture/1.jpg",
+			"img/headerSliderPicture/5.jpg",
+			"img/headerSliderPicture/3.jpg",
+			"img/headerSliderPicture/2.jpg",
+			"img/headerSliderPicture/4.jpg",
+			"index.html"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"getTodayWatchesPrice.html": {
+		"resources": [
+			"index.html"
+		],
+		"refer": [
+			"index.html"
+		]
+	}
 }
