@@ -199,7 +199,9 @@
 					"css/mui.min.css",
 					"watchPriceTable.html",
 					"getTodayWatchesPrice.html",
-					"tapAndCount.html"
+					"tapAndCount.html",
+					"img/mine_sunglass.jpg",
+					"img/qingyi.jpg"
 				],
 				"refer": [],
 				"priority": 0
@@ -208,7 +210,8 @@
 				"resources": [
 					"index.html",
 					"js/mui.min.js",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"getTodayWatchesPrice.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -228,7 +231,8 @@
 			},
 			"getTodayWatchesPrice.html": {
 				"resources": [
-					"index.html"
+					"index.html",
+					"watchPriceTable.html"
 				],
 				"refer": [],
 				"priority": 0
